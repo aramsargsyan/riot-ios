@@ -19,6 +19,7 @@
 #import <MatrixSDK/MatrixSDK.h>
 #import <MatrixKit/MatrixKit.h>
 
+#import "RoomTableViewCell.h"
 
 @implementation ShareViewController
 
@@ -37,6 +38,11 @@
     
     //MatrixKit test
     NSLog(@"KIT VERSION ====== %@", MatrixKitVersion);
+    
+    
+    //RoomTableViewCell test
+    RoomTableViewCell *cell = [[RoomTableViewCell alloc] init];
+    
     
     //UserDefaults test
     //NSUserDefaults *sharedUserDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"group.org.matrix.riot"];

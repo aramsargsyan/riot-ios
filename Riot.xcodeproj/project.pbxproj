@@ -488,6 +488,13 @@
 			remoteGlobalIDString = 24CBEC4D1F0EAD310093EABB;
 			remoteInfo = "Riot Share Extension";
 		};
+		249B5B211F220396008FCBBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F094A9A11B78D8F000B1FBBF;
+			remoteInfo = Riot;
+		};
 		F094A9BF1B78D8F000B1FBBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
@@ -2083,6 +2090,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				249B5B221F220396008FCBBE /* PBXTargetDependency */,
 			);
 			name = RiotShareExtension;
 			productName = "Riot Share Extension";
@@ -2788,6 +2796,11 @@
 			isa = PBXTargetDependency;
 			target = 24CBEC4D1F0EAD310093EABB /* RiotShareExtension */;
 			targetProxy = 242661F51F12B1BA00D3FC08 /* PBXContainerItemProxy */;
+		};
+		249B5B221F220396008FCBBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F094A9A11B78D8F000B1FBBF /* Riot */;
+			targetProxy = 249B5B211F220396008FCBBE /* PBXContainerItemProxy */;
 		};
 		F094A9C01B78D8F000B1FBBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
