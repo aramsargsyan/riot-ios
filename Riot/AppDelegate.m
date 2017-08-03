@@ -65,6 +65,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 static NSString *const kShortcutItemTypeFavourites = @"shortcut_item_type_favourites";
 static NSString *const kShortcutItemTypePeople = @"shortcut_item_type_people";
 static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
+static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent_room";
 
 @interface AppDelegate ()
 {
@@ -344,6 +345,8 @@ static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
     // Add matrix observers, and initialize matrix sessions if the app is not launched in background.
     [self initMatrixSessions];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSessionSync:) name:kMXSessionDidSyncNotification object:nil];
+    
     return YES;
 }
 
@@ -534,10 +537,22 @@ static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
     return continueUserActivity;
 }
 
+#pragma mark - 3D Touch Shortcuts handling
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
 {
     completionHandler([self handleShortcut:shortcutItem]);
+}
+
+- (void)onSessionSync:(NSNotification *)notification
+{
+    NSArray <MXRoom *> *rooms = ((MXSession *)self.mxSessions.firstObject).rooms;
+    
+    if (rooms.count)
+    {
+        UIApplicationShortcutItem *firstDynamicItem = [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemTypeRecentRoom localizedTitle:rooms[0].summary.displayname localizedSubtitle:nil icon:nil userInfo:@{@"roomID" : rooms[0].roomId}];
+        [UIApplication sharedApplication].shortcutItems = @[firstDynamicItem];
+    }
 }
 
 - (BOOL)handleShortcut:(UIApplicationShortcutItem *)shortcut
@@ -553,6 +568,11 @@ static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
     else if ([shortcut.type isEqualToString:kShortcutItemTypePeople])
     {
         [self popToHomeViewControllerWithIndex:TABBAR_PEOPLE_INDEX animated:NO completion:nil];
+    }
+    else if ([shortcut.type isEqualToString:kShortcutItemTypeRecentRoom])
+    {
+        NSString *fragment = [NSString stringWithFormat:@"/room/%@", shortcut.userInfo[@"roomID"]];
+        [self handleUniversalLinkFragment:fragment];
     }
     else
     {
