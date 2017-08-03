@@ -41,6 +41,8 @@
 
 #import "CallViewController.h"
 
+#import "MXRoom+Riot.h"
+
 //#define MX_CALL_STACK_OPENWEBRTC
 #ifdef MX_CALL_STACK_OPENWEBRTC
 #import <MatrixOpenWebRTCWrapper/MatrixOpenWebRTCWrapper.h>
@@ -550,7 +552,7 @@ static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent
     
     if (rooms.count)
     {
-        UIApplicationShortcutItem *firstDynamicItem = [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemTypeRecentRoom localizedTitle:rooms[0].summary.displayname localizedSubtitle:nil icon:nil userInfo:@{@"roomID" : rooms[0].roomId}];
+        UIApplicationShortcutItem *firstDynamicItem = [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemTypeRecentRoom localizedTitle:rooms[0].riotDisplayname localizedSubtitle:nil icon:nil userInfo:@{@"roomID" : rooms[0].roomId}];
         [UIApplication sharedApplication].shortcutItems = @[firstDynamicItem];
     }
 }
