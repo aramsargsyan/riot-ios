@@ -62,6 +62,10 @@
 NSString *const kAppDelegateDidTapStatusBarNotification = @"kAppDelegateDidTapStatusBarNotification";
 NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateNetworkStatusDidChangeNotification";
 
+static NSString *const kShortcutItemTypeFavourites = @"shortcut_item_type_favourites";
+static NSString *const kShortcutItemTypePeople = @"shortcut_item_type_people";
+static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
+
 @interface AppDelegate ()
 {
     /**
@@ -530,6 +534,33 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     return continueUserActivity;
 }
 
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+{
+    completionHandler([self handleShortcut:shortcutItem]);
+}
+
+- (BOOL)handleShortcut:(UIApplicationShortcutItem *)shortcut
+{
+    if ([shortcut.type isEqualToString:kShortcutItemTypeFavourites])
+    {
+        [self popToHomeViewControllerWithIndex:TABBAR_FAVOURITES_INDEX animated:NO completion:nil];
+    }
+    else if ([shortcut.type isEqualToString:kShortcutItemTypeRooms])
+    {
+        [self popToHomeViewControllerWithIndex:TABBAR_ROOMS_INDEX animated:NO completion:nil];
+    }
+    else if ([shortcut.type isEqualToString:kShortcutItemTypePeople])
+    {
+        [self popToHomeViewControllerWithIndex:TABBAR_PEOPLE_INDEX animated:NO completion:nil];
+    }
+    else
+    {
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - Application layout handling
 
 - (void)restoreInitialDisplay:(void (^)())completion
@@ -721,6 +752,11 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 
 - (void)popToHomeViewControllerAnimated:(BOOL)animated completion:(void (^)())completion
 {
+    [self popToHomeViewControllerWithIndex:TABBAR_HOME_INDEX animated:animated completion:completion];
+}
+
+- (void)popToHomeViewControllerWithIndex:(NSInteger)selectedIndex animated:(BOOL)animated completion:(void (^)())completion
+{
     UINavigationController *secondNavController = self.secondaryNavigationController;
     if (secondNavController)
     {
@@ -740,7 +776,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     else
     {
         // Select the Home tab
-        _masterTabBarController.selectedIndex = TABBAR_HOME_INDEX;
+        _masterTabBarController.selectedIndex = selectedIndex;
         
         if (completion)
         {
