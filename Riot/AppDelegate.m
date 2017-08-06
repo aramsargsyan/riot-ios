@@ -67,7 +67,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 static NSString *const kShortcutItemTypeFavourites = @"shortcut_item_type_favourites";
 static NSString *const kShortcutItemTypePeople = @"shortcut_item_type_people";
 static NSString *const kShortcutItemTypeRooms = @"shortcut_item_type_rooms";
-static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent_room";
+static NSString *const kShortcutItemTypeSearch = @"shortcut_item_type_search";
 
 @interface AppDelegate ()
 {
@@ -552,8 +552,8 @@ static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent
     
     if (rooms.count)
     {
-        UIApplicationShortcutItem *firstDynamicItem = [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemTypeRecentRoom localizedTitle:rooms[0].riotDisplayname localizedSubtitle:nil icon:nil userInfo:@{@"roomID" : rooms[0].roomId}];
-        [UIApplication sharedApplication].shortcutItems = @[firstDynamicItem];
+        //UIApplicationShortcutItem *firstDynamicItem = [[UIApplicationShortcutItem alloc] initWithType:kShortcutItemTypeRecentRoom localizedTitle:rooms[0].riotDisplayname localizedSubtitle:nil icon:nil userInfo:@{@"roomID" : rooms[0].roomId}];
+        //[UIApplication sharedApplication].shortcutItems = @[firstDynamicItem];
     }
 }
 
@@ -561,21 +561,34 @@ static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent
 {
     if ([shortcut.type isEqualToString:kShortcutItemTypeFavourites])
     {
-        [self popToHomeViewControllerWithIndex:TABBAR_FAVOURITES_INDEX animated:NO completion:nil];
+        [self popToHomeViewControllerAnimated:NO completion:^{
+            self.masterTabBarController.selectedIndex = TABBAR_FAVOURITES_INDEX;
+        }];
     }
     else if ([shortcut.type isEqualToString:kShortcutItemTypeRooms])
     {
-        [self popToHomeViewControllerWithIndex:TABBAR_ROOMS_INDEX animated:NO completion:nil];
+        [self popToHomeViewControllerAnimated:NO completion:^{
+            self.masterTabBarController.selectedIndex = TABBAR_ROOMS_INDEX;
+        }];
     }
     else if ([shortcut.type isEqualToString:kShortcutItemTypePeople])
     {
-        [self popToHomeViewControllerWithIndex:TABBAR_PEOPLE_INDEX animated:NO completion:nil];
+        [self popToHomeViewControllerAnimated:NO completion:^{
+            self.masterTabBarController.selectedIndex = TABBAR_PEOPLE_INDEX;
+        }];
     }
-    else if ([shortcut.type isEqualToString:kShortcutItemTypeRecentRoom])
+    else if ([shortcut.type isEqualToString:kShortcutItemTypeSearch])
+    {
+        [self popToHomeViewControllerAnimated:NO completion:^{
+            self.masterTabBarController.selectedIndex = TABBAR_HOME_INDEX;
+            [self.masterTabBarController performSegueWithIdentifier:@"showUnifiedSearch" sender:nil];
+        }];
+    }
+    /*else if ([shortcut.type isEqualToString:kShortcutItemTypeRecentRoom])
     {
         NSString *fragment = [NSString stringWithFormat:@"/room/%@", shortcut.userInfo[@"roomID"]];
         [self handleUniversalLinkFragment:fragment];
-    }
+    }*/
     else
     {
         return NO;
@@ -774,11 +787,6 @@ static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent
 
 - (void)popToHomeViewControllerAnimated:(BOOL)animated completion:(void (^)())completion
 {
-    [self popToHomeViewControllerWithIndex:TABBAR_HOME_INDEX animated:animated completion:completion];
-}
-
-- (void)popToHomeViewControllerWithIndex:(NSInteger)selectedIndex animated:(BOOL)animated completion:(void (^)())completion
-{
     UINavigationController *secondNavController = self.secondaryNavigationController;
     if (secondNavController)
     {
@@ -793,12 +801,15 @@ static NSString *const kShortcutItemTypeRecentRoom = @"shortcut_item_type_recent
         popToHomeViewControllerCompletion = completion;
         _masterNavigationController.delegate = self;
         
-        [_masterNavigationController popToViewController:_masterTabBarController animated:animated];
+        [_masterNavigationController dismissViewControllerAnimated:animated completion:^{
+            [_masterNavigationController popToViewController:_masterTabBarController animated:animated];
+        }];
+        
     }
     else
     {
         // Select the Home tab
-        _masterTabBarController.selectedIndex = selectedIndex;
+        _masterTabBarController.selectedIndex = TABBAR_HOME_INDEX;
         
         if (completion)
         {

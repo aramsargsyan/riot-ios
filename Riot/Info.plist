@@ -28,6 +28,14 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>shortcut_item_type_people</string>
 		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>search_icon</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>shortcut_search</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>shortcut_item_type_search</string>
+		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
