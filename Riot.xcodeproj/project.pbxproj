@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24047F661F38A75300B2B974 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24047F651F38A75300B2B974 /* TodayViewController.xib */; };
+		243517A61F37642500D0683E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 243517A51F37642500D0683E /* NotificationCenter.framework */; };
+		243517AA1F37642500D0683E /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243517A91F37642500D0683E /* TodayViewController.m */; };
+		243517B11F37642500D0683E /* RiotTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 243517A41F37642500D0683E /* RiotTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24B5103E1EFA7083004C6AD2 /* ReadReceiptsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B5103D1EFA7083004C6AD2 /* ReadReceiptsViewController.m */; };
 		24B510401EFA88CC004C6AD2 /* ReadReceiptsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B5103F1EFA88CC004C6AD2 /* ReadReceiptsViewController.xib */; };
 		3205ED7D1E976C8A003D65FA /* DirectoryServerPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3205ED7C1E976C8A003D65FA /* DirectoryServerPickerViewController.m */; };
@@ -43,6 +47,7 @@
 		32D392191EB9B7AB009A2BAF /* DirectoryServerDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D392171EB9B7AB009A2BAF /* DirectoryServerDetailTableViewCell.xib */; };
 		32FD0A3D1EB0CD9B0072B066 /* BugReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD0A3B1EB0CD9B0072B066 /* BugReportViewController.m */; };
 		32FD0A3E1EB0CD9B0072B066 /* BugReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FD0A3C1EB0CD9B0072B066 /* BugReportViewController.xib */; };
+		88CF4D20CE40A3D8E63ECA46 /* libPods-RiotTodayWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CF1BED88A5469E21DAC37C /* libPods-RiotTodayWidget.a */; };
 		E2EAC1A4FBD6FE5228584591 /* libPods-Riot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8737F782E108CFD6908691 /* libPods-Riot.a */; };
 		F0131DE51F2200D600CBF707 /* RiotSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F0131DE41F2200D600CBF707 /* RiotSplitViewController.m */; };
 		F02C1A861E8EB04C0045A404 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C1A841E8EB04C0045A404 /* PeopleViewController.m */; };
@@ -485,6 +490,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		243517AF1F37642500D0683E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 243517A31F37642500D0683E;
+			remoteInfo = RiotTodayWidget;
+		};
 		F094A9BF1B78D8F000B1FBBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
@@ -494,11 +506,32 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		243517B51F37642500D0683E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				243517B11F37642500D0683E /* RiotTodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1129C74A281B080432B1A1A1 /* Pods-Riot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Riot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Riot/Pods-Riot.debug.xcconfig"; sourceTree = "<group>"; };
+		24047F651F38A75300B2B974 /* TodayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayViewController.xib; sourceTree = "<group>"; };
+		243517A41F37642500D0683E /* RiotTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RiotTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		243517A51F37642500D0683E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		243517A81F37642500D0683E /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		243517A91F37642500D0683E /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		243517AE1F37642500D0683E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24B5103C1EFA7083004C6AD2 /* ReadReceiptsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadReceiptsViewController.h; sourceTree = "<group>"; };
 		24B5103D1EFA7083004C6AD2 /* ReadReceiptsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadReceiptsViewController.m; sourceTree = "<group>"; };
 		24B5103F1EFA88CC004C6AD2 /* ReadReceiptsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadReceiptsViewController.xib; sourceTree = "<group>"; };
+		24D6B2BC1F3BB25D00FC7A71 /* RiotTodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RiotTodayWidget.entitlements; sourceTree = "<group>"; };
 		3205ED7B1E976C8A003D65FA /* DirectoryServerPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryServerPickerViewController.h; sourceTree = "<group>"; };
 		3205ED7C1E976C8A003D65FA /* DirectoryServerPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryServerPickerViewController.m; sourceTree = "<group>"; };
 		3205ED811E97725E003D65FA /* DirectoryServerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryServerTableViewCell.h; sourceTree = "<group>"; };
@@ -545,6 +578,9 @@
 		32FD0A3B1EB0CD9B0072B066 /* BugReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugReportViewController.m; sourceTree = "<group>"; };
 		32FD0A3C1EB0CD9B0072B066 /* BugReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BugReportViewController.xib; sourceTree = "<group>"; };
 		7D8737F782E108CFD6908691 /* libPods-Riot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Riot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92480AE2F5917590A67494ED /* Pods-RiotTodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiotTodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RiotTodayWidget/Pods-RiotTodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		C8B92EC54AFAC3F171AA1B31 /* Pods-RiotTodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiotTodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiotTodayWidget/Pods-RiotTodayWidget.release.xcconfig"; sourceTree = "<group>"; };
+		E0CF1BED88A5469E21DAC37C /* libPods-RiotTodayWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RiotTodayWidget.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0131DE31F2200D600CBF707 /* RiotSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiotSplitViewController.h; sourceTree = "<group>"; };
 		F0131DE41F2200D600CBF707 /* RiotSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiotSplitViewController.m; sourceTree = "<group>"; };
 		F02C1A831E8EB04C0045A404 /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
@@ -1111,6 +1147,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		243517A11F37642500D0683E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243517A61F37642500D0683E /* NotificationCenter.framework in Frameworks */,
+				88CF4D20CE40A3D8E63ECA46 /* libPods-RiotTodayWidget.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A99F1B78D8F000B1FBBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1129,6 +1174,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		243517A71F37642500D0683E /* RiotTodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				24D6B2BC1F3BB25D00FC7A71 /* RiotTodayWidget.entitlements */,
+				243517A81F37642500D0683E /* TodayViewController.h */,
+				243517A91F37642500D0683E /* TodayViewController.m */,
+				24047F651F38A75300B2B974 /* TodayViewController.xib */,
+				243517AE1F37642500D0683E /* Info.plist */,
+			);
+			path = RiotTodayWidget;
+			sourceTree = "<group>";
+		};
 		3205ED801E97725E003D65FA /* Directory */ = {
 			isa = PBXGroup;
 			children = (
@@ -1186,6 +1243,8 @@
 			isa = PBXGroup;
 			children = (
 				7D8737F782E108CFD6908691 /* libPods-Riot.a */,
+				243517A51F37642500D0683E /* NotificationCenter.framework */,
+				E0CF1BED88A5469E21DAC37C /* libPods-RiotTodayWidget.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1195,6 +1254,8 @@
 			children = (
 				1129C74A281B080432B1A1A1 /* Pods-Riot.debug.xcconfig */,
 				F9D678EF54918C036FDEDBF9 /* Pods-Riot.release.xcconfig */,
+				92480AE2F5917590A67494ED /* Pods-RiotTodayWidget.debug.xcconfig */,
+				C8B92EC54AFAC3F171AA1B31 /* Pods-RiotTodayWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2045,6 +2106,7 @@
 			children = (
 				F083BB081E7009EC00A9B29C /* Riot */,
 				F083BB021E7005FD00A9B29C /* RiotTests */,
+				243517A71F37642500D0683E /* RiotTodayWidget */,
 				F094A9A31B78D8F000B1FBBF /* Products */,
 				E1451F540F8BC02A7FB7AA31 /* Pods */,
 				6567B0BBF3C05D7F7A7F79CC /* Frameworks */,
@@ -2056,6 +2118,7 @@
 			children = (
 				F094A9A21B78D8F000B1FBBF /* Riot.app */,
 				F094A9BE1B78D8F000B1FBBF /* RiotTests.xctest */,
+				243517A41F37642500D0683E /* RiotTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2063,6 +2126,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		243517A31F37642500D0683E /* RiotTodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 243517B41F37642500D0683E /* Build configuration list for PBXNativeTarget "RiotTodayWidget" */;
+			buildPhases = (
+				0C7C9D11B3CA1C5EFB9CC7B5 /* [CP] Check Pods Manifest.lock */,
+				243517A01F37642500D0683E /* Sources */,
+				243517A11F37642500D0683E /* Frameworks */,
+				243517A21F37642500D0683E /* Resources */,
+				98F0BA45BDEE4C65E3E5491D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RiotTodayWidget;
+			productName = RiotTodayWidget;
+			productReference = 243517A41F37642500D0683E /* RiotTodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F094A9A11B78D8F000B1FBBF /* Riot */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F094A9C81B78D8F000B1FBBF /* Build configuration list for PBXNativeTarget "Riot" */;
@@ -2073,10 +2155,12 @@
 				F094A9A01B78D8F000B1FBBF /* Resources */,
 				44C35695CFA4F9799C449367 /* [CP] Copy Pods Resources */,
 				381DA4CC07D2104BFA23E45A /* [CP] Embed Pods Frameworks */,
+				243517B51F37642500D0683E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				243517B01F37642500D0683E /* PBXTargetDependency */,
 			);
 			name = Riot;
 			productName = Vector;
@@ -2110,11 +2194,24 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = matrix.org;
 				TargetAttributes = {
+					243517A31F37642500D0683E = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 7J4U792NQT;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					F094A9A11B78D8F000B1FBBF = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 7J4U792NQT;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -2145,11 +2242,20 @@
 			targets = (
 				F094A9A11B78D8F000B1FBBF /* Riot */,
 				F094A9BD1B78D8F000B1FBBF /* RiotTests */,
+				243517A31F37642500D0683E /* RiotTodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		243517A21F37642500D0683E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24047F661F38A75300B2B974 /* TodayViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A9A01B78D8F000B1FBBF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2507,6 +2613,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C7C9D11B3CA1C5EFB9CC7B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		381DA4CC07D2104BFA23E45A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2552,9 +2673,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		98F0BA45BDEE4C65E3E5491D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RiotTodayWidget/Pods-RiotTodayWidget-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		243517A01F37642500D0683E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243517AA1F37642500D0683E /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A99E1B78D8F000B1FBBF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2706,6 +2850,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		243517B01F37642500D0683E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 243517A31F37642500D0683E /* RiotTodayWidget */;
+			targetProxy = 243517AF1F37642500D0683E /* PBXContainerItemProxy */;
+		};
 		F094A9C01B78D8F000B1FBBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F094A9A11B78D8F000B1FBBF /* Riot */;
@@ -2829,6 +2978,45 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		243517B21F37642500D0683E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92480AE2F5917590A67494ED /* Pods-RiotTodayWidget.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = RiotTodayWidget/RiotTodayWidget.entitlements;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7J4U792NQT;
+				INFOPLIST_FILE = RiotTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app.RiotTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		243517B31F37642500D0683E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8B92EC54AFAC3F171AA1B31 /* Pods-RiotTodayWidget.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_ENTITLEMENTS = RiotTodayWidget/RiotTodayWidget.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7J4U792NQT;
+				INFOPLIST_FILE = RiotTodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app.RiotTodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		F094A9C61B78D8F000B1FBBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2990,6 +3178,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		243517B41F37642500D0683E /* Build configuration list for PBXNativeTarget "RiotTodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				243517B21F37642500D0683E /* Debug */,
+				243517B31F37642500D0683E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F094A99D1B78D8F000B1FBBF /* Build configuration list for PBXProject "Riot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
